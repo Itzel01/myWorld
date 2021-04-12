@@ -6,8 +6,8 @@ router.use('/:id', blogController.findBlog)
 // get /blogs  
 // get /blogs/:id
 // get /blogs/edit
-// delete /blogs/:id
-// post /blogs
+router.delete ('/:id', blogController.deleteBlog)
+router.post('/', blogController.newBlog)
 // patch /blogs/:id
 
 module.exports = router;
