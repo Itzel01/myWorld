@@ -3,6 +3,10 @@ const router = express.Router();
 const blogController = require('../controllers/blogController');
 
 router.use('/:id', blogController.findBlog)
+
+router.get('/', blogController.getBlogs)
+router.get('/:id', blogController.getBlog)
+
 // get /blogs  
 // get /blogs/:id
 // get /blogs/edit
