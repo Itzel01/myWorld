@@ -47,4 +47,7 @@ INSERT INTO playlists (user_id, title, artist, media_link) VALUES
 	(1,  'Never', 'RA', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
 	(2,  'Never', 'RA', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
 	(3,  'Never', 'RA', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-	
+
+CREATE TABLE bookmarks (userBookmarking Int REFERENCES users(id), bookmarkedBlog INT REFERENCES blogs(id));
+
+INSERT INTO bookmarks (userBookmarking, bookmarkedBlog) VALUES (1,1);
