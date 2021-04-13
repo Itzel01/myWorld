@@ -45,10 +45,25 @@ const getBlog = async (req, res) => {
     res.status(200).json(blog);
 }
 
+const updateBlog = async (req, res) => {
+    const id = req.id;
+   // console.log(id)
+    const updatedBlog = Object.assign(req.blog, req.body)
+    console.log(updatedBlog)
+    try{
+        const blogInfo = await Blog.updateBlog(id, updatedBlog)
+        console.log(blogInfo)
+        res.status(200).json(blogInfo)
+    }catch{
+        res.status(500)
+    }
+}
+
 module.exports = {
     findBlog,
     newBlog,
     deleteBlog,
     getBlogs,
-    getBlog
+    getBlog,
+    updateBlog
 }

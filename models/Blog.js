@@ -25,6 +25,11 @@ class Blog {
         const queryText = 'SELECT * FROM blogs WHERE id = $1;'
         return db.query(queryText, [id]).then(results => results.rows[0]);
     }
+
+    static updateBlog(id, info) {
+        const queryText = 'UPDATE blogs SET title = $1, blog_content = $2, user_id = $3 WHERE id = $4 RETURNING *;'
+        return db.query(queryText, [info.title, info.blog_content, info.user_id, id]).then(results => results.rows[0]);
+    }
 }
 
 module.exports = {Blog}

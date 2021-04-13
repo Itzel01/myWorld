@@ -11,5 +11,6 @@ router.get('/:id', blogController.getBlog)
 router.delete ('/:id', blogController.deleteBlog)
 router.post('/', blogController.newBlog)
 // patch /blogs/:id
+router.patch('/:id', blogController.updateBlog)
 
 module.exports = router;
