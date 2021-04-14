@@ -35,6 +35,9 @@
                 <h1> Mood: <%= post.mood %></h1>
                 <p> <%= post.post_content %></p>
                 <a href="/posts/<%=post.id%>/edit">Edit Post</a>
+                <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+                    <button type="submit">DELETE POST?</button>
+                </form>
             </li>
           <% } %>
         </ul>
@@ -48,6 +51,9 @@
                     <h1><%= blog.title %></h1>
                     <p> <%= blog.blog_content %></p>
                     <a href="/blogs/<%=blog.id%>/edit">Edit Blog</a>
+                    <form action="/blogs/<%=blog.id%>?_method=DELETE" method="post">
+                        <button type="submit">DELETE BLOG?</button>
+                    </form>
                 </li>
               <% } %>
             </ul>
