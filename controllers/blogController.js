@@ -18,12 +18,11 @@ const findBlog = (req, res, next) => {
 
 const newBlog = async (req, res) => {
     try {
-        let {title, blog_content, user_id} = req.body
-        let newBlog = await Blog.newBlog(req.body)
+        let newBlog = await Blog.newBlog(req.body);
         if(newBlog){
             res.status(201).json(newBlog)
-    }
-    }catch(err){
+        }
+    } catch {
         res.status(404).json({msg: "Blog wasn't made successfully"})
     }
 }
