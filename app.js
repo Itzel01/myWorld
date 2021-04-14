@@ -57,6 +57,10 @@ app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
 app.use('/posts', postRouter)
 
+app.get('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('/login')
+})
 app.get("/explore", async (req, res) => {
     let posts = await Post.getPosts();
     let blogs = await Blog.getBlogs();
