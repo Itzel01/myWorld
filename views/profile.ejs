@@ -6,13 +6,13 @@
             <li>
                 <a>Hamburger</a>
                 <ul>
-                    <a href=""><li>Create Blog</li></a>
-                    <a href=""><li>Create Post</li></a>
+                    <a href="/blogs/new"><li>Create Blog</li></a>
+                    <a href="/posts/new"><li>Create Post</li></a>
                     <a href=""><li>My Playlist</li></a>
                     <a href="/explore"><li>Explore Page</li></a>
                 </ul>
             </li>
-            <li> <a href="/explore"><h1>Welcome to MyWorld</h1></a> </li>
+            <li> <a href="/profile"><h1>User's profile</h1></a> </li>
             <li>
                 <form action="">
                     <input type="search" name="search-bar" placeholder="Search" id="">
@@ -24,30 +24,33 @@
           </ul>
     </nav>
     <div>
-        <h3>Recent posts</h3>
+        <h1>Music Section</h1>
+    </div>
+    <div>
+        <h3>Posts</h3>
         <ul>
           <% for(const post of posts){ %>
             <li>
                 <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
-                <h1>I feel like <%= post.mood %></h1>
+                <h1> Mood: <%= post.mood %></h1>
                 <p> <%= post.post_content %></p>
+                <a href="/posts/<%=post.id%>/edit">Edit Post</a>
             </li>
           <% } %>
         </ul>
         </div>
-          <h3>Recent blogs</h3>
-          <ul>
-            <% for(const blog of blogs){ %>
-              <li>
-                  <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
-                  <h1>This is the <%= blog.title %></h1>
-                  <p> <%= blog.blog_content %></p>
-              </li>
-            <% } %>
-          </ul>
-          </div>  
         <div>
-            <a href="/logout">Logout</a>
-        </div>
+            <h3>Recent blogs</h3>
+            <ul>
+              <% for(const blog of blogs){ %>
+                <li>
+                    <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                    <h1><%= blog.title %></h1>
+                    <p> <%= blog.blog_content %></p>
+                    <a href="/blogs/<%=blog.id%>/edit">Edit Blog</a>
+                </li>
+              <% } %>
+            </ul>
+            </div>  
 </body>
 </html>

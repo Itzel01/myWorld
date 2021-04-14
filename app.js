@@ -9,6 +9,8 @@ const loginRouter = require('./routers/loginRouter')
 const blogRouter = require('./routers/blogRouter');
 const userRouter = require('./routers/userRouter');
 const postRouter = require('./routers/postRouter');
+const { Blog } = require('./models/Blog');
+const { Post } = require('./models/Post');
 
 
 app.set('view engine', 'ejs');
@@ -53,12 +55,38 @@ app.use('/login', loginRouter)
 app.use('/register', registerRouter)
 app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
-
 app.use('/posts', postRouter)
 
 app.get('/logout', (req, res) => {
     req.session.destroy()
     res.redirect('/login')
 })
+app.get("/explore", async (req, res) => {
+    let posts = await Post.getPosts();
+    let blogs = await Blog.getBlogs();
+    try{
+        if(req.query.format === 'json'){
+            res.status(200).json(posts)
+        } else {
+            res.render('explore', {posts, blogs})
+        }
+    } catch {
+        res.status(500)
+    }
+});
+
+app.get("/profile", async (req, res) => {
+    let posts = await Post.getPosts();
+    let blogs = await Blog.getBlogs();
+    try{
+        if(req.query.format === 'json'){
+            res.status(200).json(posts)
+        } else {
+            res.render('profile', {posts, blogs})
+        }
+    } catch {
+        res.status(500)
+    }
+});
 
 app.listen(PORT, () => {console.log(`Server starting on port ${PORT}, click here (http://127.0.0.1:${PORT}/)`)});

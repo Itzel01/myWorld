@@ -1,2 +1,15 @@
 <%- include("./layout/main.ejs") -%>
 
+<body>
+    <h1>Edit Your Post</h1>
+    <form action="/posts/<%=post.id%>?_method=PATCH" method="post">
+        <label for="mood" class="label">Mood:</label> <br>
+        <input type="text" name="mood" value= <%= post.mood %>> <br>
+
+        <label for="post_content">Post Content:</label> <br>
+        <textarea name="post_content"> <%= post.post_content %> </textarea> <br>
+
+        <button type="submit"> Resubmit Post </button>
+    </form> 
+ </body>
+ </html>
