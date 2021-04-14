@@ -68,7 +68,12 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
     const id = req.id
     await Post.deletePost(id)
-    res.status(200).json({msg: "Post was successfully deleted"})
+    if(req.query.format === 'json'){
+        res.status(200).json({msg: "Post was successfully deleted"})
+    } else {
+        res.redirect('/profile')
+    }
+    
 }
 
 module.exports = {

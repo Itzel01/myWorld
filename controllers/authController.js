@@ -18,7 +18,7 @@ const login = async(req, res) => {
     }
 }
 const register = async (req, res) => {
-    let {user_name, email, encypted_password} = req.body
+    let {first_name, last_name, user_name, email, encypted_password} = req.body
     let user = await Auth.register(req.body)
     res.redirect('/login')
 }

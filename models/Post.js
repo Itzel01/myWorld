@@ -8,7 +8,6 @@ class Post {
 
     static newPost(postInfo){
         let {mood, post_content, user_id} = postInfo
-        //console.log(postInfo)
         const queryText = `INSERT INTO posts (mood, post_content, user_id, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *`
         return db.query(queryText, [mood, post_content, user_id]).then(results => results.rows[0])
     }

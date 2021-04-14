@@ -5,13 +5,13 @@ DROP TABLE IF EXISTS playlists CASCADE;
 DROP TABLE IF EXISTS bookmarks CASCADE;
 
 -- CREATE TABLE users
-CREATE TABLE users (id SERIAL PRIMARY KEY, user_name TEXT, email TEXT, encypted_password CHAR(60));
+CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT, user_name TEXT, email TEXT, encypted_password CHAR(60));
 
 -- INSERT some data into users
-INSERT INTO users (user_name, email, encypted_password) VALUES
-	('Olivia', 'olivia@gmail.com', '1234'),
-	('Jarrit', 'Jarrit@outlook.com', '12345'),
-	('Itzel', 'Itzel@twitch.com', '123456');
+INSERT INTO users (first_name, last_name, user_name, email, encypted_password) VALUES
+	('Olivia', 'Reed', 'Olive', 'olivia@gmail.com', '1234'),
+	('Jarrit', 'Alicea', 'Jar', 'Jarrit@outlook.com', '12345'),
+	('Itzel', 'Rendon', 'Itz', 'Itzel@twitch.com', '123456');
 	
 -- CREATE TABLE blogs
 CREATE TABLE blogs (id SERIAL PRIMARY KEY, title TEXT, blog_content TEXT, created_at TIMESTAMP WITH TIME ZONE, user_id INT REFERENCES users(id));
