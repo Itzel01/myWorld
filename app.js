@@ -5,7 +5,6 @@ const methodOverride = require('method-override');
 
 const blogRouter = require('./routers/blogRouter');
 const userRouter = require('./routers/userRouter');
-const exploreRouter = require('./routers/exploreRouter')
 const postRouter = require('./routers/postRouter');
 
 
@@ -21,7 +20,6 @@ app.use('/', (req, res, next) => {
 
 app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
-app.use('/explore', exploreRouter)
 
 app.use('/posts', postRouter)
 
