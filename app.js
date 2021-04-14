@@ -20,7 +20,7 @@ app.use(session({
     secret: 'wowwowwow',
     resave: false,
     saveUninitialized: false,
-    name: 'Not a real Cookie'
+    name: 'Not a real Cookie1'
 }))
 
 app.use('/', (req, res, next) => {
@@ -28,9 +28,9 @@ app.use('/', (req, res, next) => {
     next()
 })
 
-// app.get('/', (req, res) => {
-//     res.redirect('/login')
-// })
+app.get('/', (req, res) => {
+    res.redirect('/login')
+})
 
 app.get('/login', (req, res) => {
     res.render('login')

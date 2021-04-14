@@ -8,7 +8,7 @@ const login = async(req, res) => {
         bcrypt.compare(password, user.encypted_password, (err, results) => {
             if(results){
                 req.session.user = user
-                res.send('nice')
+                res.redirect('/posts')
             } else {
                 res.send("Whoops, one of your credentials wasn't right")
             }
