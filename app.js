@@ -56,4 +56,9 @@ app.use('/users', userRouter)
 
 app.use('/posts', postRouter)
 
+app.get('/logout', (req, res) => {
+    req.session.destroy()
+    res.redirect('/login')
+})
+
 app.listen(PORT, () => {console.log(`Server starting on port ${PORT}, click here (http://127.0.0.1:${PORT}/)`)});
