@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/postController');
 
+//gets form to make new post
+router.get('/new', postController.newPostForm)
 
 //middleware to find the post
 router.use('/:id', postController.findPost)
@@ -14,9 +16,6 @@ router.get('/:id', postController.getPost)
 
 //gets form for post
 router.get('/:id/edit', postController.getEditForm)
-
-//gets form to make new post
-router.get('/new', postController.newPostForm)
 
 //makes a new post
 router.post('/', postController.newPost)

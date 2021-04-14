@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const blogController = require('../controllers/blogController');
 
+//gets form to make new post
+router.get('/new', blogController.newBlogForm)
+
 //middleware to find the blog
 router.use('/:id', blogController.findBlog)
 
@@ -13,9 +16,6 @@ router.get('/:id', blogController.getBlog)
 
 //gets form for blog
 router.get('/:id/edit', blogController.getEditForm)
-
-//gets form to make new post
-router.get('/new', blogController.newBlogForm)
 
 //makes a new blog
 router.post('/', blogController.newBlog)

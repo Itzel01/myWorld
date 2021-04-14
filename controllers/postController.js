@@ -39,8 +39,10 @@ const newPostForm = async (req, res) => {
 const newPost = async (req, res) => {
     try {
         let newPost = await Post.newPost(req.body)
-        if(newPost){
+        if(req.query.format === 'json'){
             res.status(201).json(newPost)
+        } else {
+            res.redirect('/profile')
         }
     } catch {
         res.status(404).json({msg: "Post wasn't made successfully"})
