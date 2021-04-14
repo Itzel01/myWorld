@@ -68,7 +68,7 @@ app.get("/explore", async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('explore', {posts, blogs})
+            res.render('explore', {posts, blogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
         }
     } catch {
         res.status(500)
@@ -82,7 +82,7 @@ app.get("/profile", async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('profile', {posts, blogs})
+            res.render('profile', {posts, blogs, LinkTo: "/profile", title: "User's profile"})
         }
     } catch {
         res.status(500)

@@ -1,28 +1,7 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     
-    <nav>
-        <ul>
-            <li>
-                <a>Hamburger</a>
-                <ul>
-                    <a href="/blogs/new"><li>Create Blog</li></a>
-                    <a href="/posts/new"><li>Create Post</li></a>
-                    <a href=""><li>My Playlist</li></a>
-                    <a href="/explore"><li>Explore Page</li></a>
-                </ul>
-            </li>
-            <li> <a href="/profile"><h1>User's profile</h1></a> </li>
-            <li>
-                <form action="">
-                    <input type="search" name="search-bar" placeholder="Search" id="">
-                </form>
-            </li>
-            <li>
-                <a href="/profile"><img src="https://avatar.oxro.io/avatar.svg?name=Profile+Image&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
-            </li>
-          </ul>
-    </nav>
+    <%- include("./layout/nav.ejs") -%>
     <div>
         <h1>Music Section</h1>
     </div>

@@ -29,11 +29,11 @@ const getBlog = async (req, res) => {
 
 const getEditForm = async (req, res) => {
     let blog = req.blog
-    res.render('editBlogForm', {blog})
+    res.render('editBlogForm', {blog, LinkTo: "/profile", title: "Edit Blog"})
 }
 
 const newBlogForm = (req, res) => {
-    res.render('blogForm')
+    res.render('blogForm', {LinkTo: "/blogs/new", title: "Create New Blog"})
 }
 
 const newBlog = async (req, res) => {
