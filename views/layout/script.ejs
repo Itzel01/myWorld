@@ -1,0 +1,52 @@
+<script>
+    const form = document.getElementById("search");
+    let searchInput = "";
+  
+    function handleSubmit(event) {
+        event.preventDefault();
+        searchInput = "";
+        searchInput += form.getElementsByTagName("input")[0].value;
+        searchBlog(searchInput);
+        searchPost(searchInput);
+        form.reset();
+    }
+  
+    function searchBlog(searchInput) {
+      var input, filter, ul, li, a, i, txtValue;
+      input = searchInput;
+      filter = input.toUpperCase();
+      ul = document.getElementById("findBlog");
+      li = ul.getElementsByTagName('li');
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h1")[0];
+        txtValue = a.textContent || a.innerText;
+  
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  
+    function searchPost(searchInput) {
+      var input, filter, ul, li, a, i, txtValue;
+      input = searchInput;
+      filter = input.toUpperCase();
+      ul = document.getElementById("findPost");
+      li = ul.getElementsByTagName('li');
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h1")[0];
+        txtValue = a.textContent || a.innerText;
+  
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+  
+  
+    form.addEventListener('submit', handleSubmit);
+  </script>

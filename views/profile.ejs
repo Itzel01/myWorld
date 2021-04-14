@@ -7,7 +7,7 @@
     </div>
     <div>
         <h3>Posts</h3>
-        <ul>
+        <ul id="findPost">
           <% for(const post of posts){ %>
             <li>
                 <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
@@ -23,7 +23,7 @@
         </div>
         <div>
             <h3>Recent blogs</h3>
-            <ul>
+            <ul id="findBlog">
               <% for(const blog of blogs){ %>
                 <li>
                     <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
@@ -38,4 +38,5 @@
             </ul>
             </div>  
 </body>
+<%- include("./layout/script.ejs") -%>
 </html>
