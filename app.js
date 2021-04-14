@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 
 const blogRouter = require('./routers/blogRouter');
 const userRouter = require('./routers/userRouter');
+const exploreRouter = require('./routers/exploreRouter')
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -18,6 +19,7 @@ app.use('/', (req, res, next) => {
 
 app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
+app.use('/explore', exploreRouter)
 
 
-app.listen(PORT, () => {console.log(`Server starting on port ${PORT}`)});
+app.listen(PORT, () => {console.log(`Server starting on port ${PORT}, click here (http://127.0.0.1:${PORT}/)`)});

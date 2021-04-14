@@ -1,0 +1,49 @@
+<%- include("./layout/main.ejs") -%>
+<body>
+    
+    <nav>
+        <ul>
+            <li>
+                <a>Hamburger</a>
+                <ul>
+                    <a href="/explore"><li>Create Blog</li></a>
+                    <a href="/explore"><li>Create Post</li></a>
+                    <a href="/explore"><li>My Playlist</li></a>
+                    <a href="/explore"><li>Explore Page</li></a>
+                </ul>
+            </li>
+            <li> <a href="/explore"><h1>Welcome to MyWorld</h1></a> </li>
+            <li>
+                <form action="">
+                    <input type="search" name="search-bar" placeholder="Search" id="">
+                </form>
+            </li>
+            <li>
+                <img src="https://avatar.oxro.io/avatar.svg?name=Profile+Image&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+            </li>
+          </ul>
+    </nav>
+    <div>
+        <h3>Recent blogs</h3>
+        <ul>
+          <% for(const blog of blogs){ %>
+            <li>
+                <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <h1>This is the <%= blog.title %></h1>
+                <p> <%= blog.blog_content %></p>
+            </li>
+          <% } %>
+        </ul>
+        <h3>Recent posts</h3>
+        <ul>
+          <% for(const post of posts){ %>
+            <li>
+                <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <h1>I feel like <%= post.mood %></h1>
+                <p> <%= post.post_content %></p>
+            </li>
+          <% } %>
+        </ul>
+        </div>
+</body>
+</html>
