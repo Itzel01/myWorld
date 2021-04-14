@@ -27,6 +27,15 @@ const getPost = async (req, res) => {
     res.status(200).json(post);
 }
 
+const getEditForm = async (req, res) => {
+    let post = req.post
+    res.render('postEditForm', {post})
+}
+
+const newPostForm = async (req, res) => {
+    res.render('postForm')
+}
+
 const newPost = async (req, res) => {
     try {
         let newPost = await Post.newPost(req.body)
@@ -46,7 +55,7 @@ const updatePost = async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(post)
         } else {
-            res.redirect(`/posts`);
+            res.redirect(`/profile`);
         }
     }catch{
         res.status(500)
@@ -63,6 +72,8 @@ module.exports = {
     findPost,
     getPosts,
     getPost,
+    getEditForm,
+    newPostForm,
     newPost,
     updatePost,
     deletePost

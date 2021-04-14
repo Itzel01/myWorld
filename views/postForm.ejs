@@ -1,1 +1,15 @@
 <%- include("./layout/main.ejs") -%>
+
+<body>
+    <h1>New Post</h1>
+    <form action="/posts/" method="post">
+        <label for="mood" class="label">Mood:</label> <br>
+        <input type="text" name="mood" placeholder="insert an empji to describe your mood"> <br>
+
+        <label for="post_content">Post Content:</label> <br>
+        <textarea name="post_content"> </textarea> <br>
+
+        <button type="submit"> Submit Post </button>
+    </form> 
+ </body>
+ </html>

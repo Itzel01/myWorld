@@ -11,6 +11,12 @@ router.get('/', blogController.getBlogs)
 //gets a specific blog
 router.get('/:id', blogController.getBlog)
 
+//gets form for blog
+router.get('/:id/edit', blogController.getEditForm)
+
+//gets form to make new post
+router.get('/new', blogController.newBlogForm)
+
 //makes a new blog
 router.post('/', blogController.newBlog)
 

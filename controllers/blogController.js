@@ -27,6 +27,16 @@ const getBlog = async (req, res) => {
     res.status(200).json(blog);
 }
 
+const getEditForm = async (req, res) => {
+    let blog = req.blog
+    res.render('editBlogForm', {blog})
+}
+
+const newBlogForm = (req, res) => {
+    console.log('res')
+    res.render('blogForm')
+}
+
 const newBlog = async (req, res) => {
     try {
         let newBlog = await Blog.newBlog(req.body);
@@ -46,7 +56,7 @@ const updateBlog = async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(blog)
         } else {
-            res.redirect(`/posts`);
+            res.redirect(`/profile`);
         }
     }catch{
         res.status(500)
@@ -63,6 +73,8 @@ module.exports = {
     findBlog,
     getBlogs,
     getBlog,
+    getEditForm,
+    newBlogForm,
     newBlog,
     updateBlog,
     deleteBlog
