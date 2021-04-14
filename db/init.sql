@@ -5,10 +5,10 @@ DROP TABLE IF EXISTS playlists CASCADE;
 DROP TABLE IF EXISTS bookmarks CASCADE;
 
 -- CREATE TABLE users
-CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT, user_name TEXT, email TEXT, encypted_password CHAR(60));
+CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT, user_name TEXT, email TEXT, encrypted_password CHAR(60));
 
 -- INSERT some data into users
-INSERT INTO users (first_name, last_name, user_name, email, encypted_password) VALUES
+INSERT INTO users (first_name, last_name, user_name, email, encrypted_password) VALUES
 	('Olivia', 'Reed', 'Olive', 'olivia@gmail.com', '1234'),
 	('Jarrit', 'Alicea', 'Jar', 'Jarrit@outlook.com', '12345'),
 	('Itzel', 'Rendon', 'Itz', 'Itzel@twitch.com', '123456');

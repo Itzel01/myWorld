@@ -5,7 +5,7 @@ const login = async(req, res) => {
     const {email, password} = req.body
     const user = await Auth.login(req.body)
     if(user){
-        bcrypt.compare(password, user.encypted_password, (err, results) => {
+        bcrypt.compare(password, user.encrypted_password, (err, results) => {
             if(results){
                 req.session.user = user
                 res.redirect('/explore')
@@ -18,7 +18,7 @@ const login = async(req, res) => {
     }
 }
 const register = async (req, res) => {
-    let {first_name, last_name, user_name, email, encypted_password} = req.body
+    let {first_name, last_name, user_name, email, encrypted_password} = req.body
     let user = await Auth.register(req.body)
     res.redirect('/login')
 }
