@@ -26,16 +26,16 @@ INSERT INTO blogs (user_id, title, blog_content, created_at) VALUES
 	(3, 'Why every loves a good CSS joke', 'content', now());
 
 -- CREATE TABLE posts
-CREATE TABLE posts (id SERIAL PRIMARY KEY, post_content TEXT, created_at TIMESTAMP WITH TIME ZONE, user_id INT REFERENCES users(id));
+CREATE TABLE posts (id SERIAL PRIMARY KEY, mood TEXT, post_content TEXT, created_at TIMESTAMP WITH TIME ZONE, user_id INT REFERENCES users(id));
 
 -- INSERT some data into posts
-INSERT INTO posts (user_id, post_content, created_at) VALUES
-	(1,  'content', now()),
-	(2,  'content', now()),
-	(3,  'content', now()),
-	(1,  'content', now()),
-	(2,  'content', now()),
-	(3,  'content', now());
+INSERT INTO posts (user_id, mood, post_content, created_at) VALUES
+	(1, 'current mood', 'content',  now()),
+	(2, 'current mood', 'content', now()),
+	(3, 'current mood', 'content', now()),
+	(1, 'current mood', 'content', now()),
+	(2, 'current mood', 'content', now()),
+	(3, 'current mood', 'content', now());
 	
 -- CREATE TABLE playlists
 CREATE TABLE playlists (id SERIAL PRIMARY KEY, user_id INT REFERENCES users(id), title TEXT,  artist TEXT, media_link TEXT);

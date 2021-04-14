@@ -8,6 +8,8 @@ const registerRouter = require('./routers/registerRouter')
 const loginRouter = require('./routers/loginRouter')
 const blogRouter = require('./routers/blogRouter');
 const userRouter = require('./routers/userRouter');
+const postRouter = require('./routers/postRouter');
+
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
@@ -52,5 +54,6 @@ app.use('/register', registerRouter)
 app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
 
+app.use('/posts', postRouter)
 
-app.listen(PORT, () => {console.log(`Server starting on port ${PORT}`)});
+app.listen(PORT, () => {console.log(`Server starting on port ${PORT}, click here (http://127.0.0.1:${PORT}/)`)});
