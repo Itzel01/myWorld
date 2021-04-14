@@ -11,6 +11,7 @@ const userRouter = require('./routers/userRouter');
 const postRouter = require('./routers/postRouter');
 const { Blog } = require('./models/Blog');
 const { Post } = require('./models/Post');
+const { User } = require('./models/User');
 
 
 app.set('view engine', 'ejs');
@@ -42,10 +43,10 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-// app.get("/users", (req, res) => {
+// app.get("/explore", (req, res) => {
 //     let {user} = req.session
 //     if(user) {
-//       res.render("users", {user})
+//       res.render("explore", {user})
 //     } else {
 //       res.redirect("/login")
 //     }
@@ -62,13 +63,15 @@ app.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 app.get("/explore", async (req, res) => {
+    let users = await User.getUsers();
     let posts = await Post.getPosts();
     let blogs = await Blog.getBlogs();
+    debugger
     try{
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('explore', {posts, blogs})
+            res.render('explore', {posts, blogs, users})
         }
     } catch {
         res.status(500)

@@ -19,7 +19,7 @@
                 </form>
             </li>
             <li>
-                <a href="/profile"><img src="https://avatar.oxro.io/avatar.svg?name=Profile+Image&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
+                <a href="/profile"><img src="https://avatar.oxro.io/avatar.svg?name=<%= users.first_name %>+<%= users.last_name %>&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
             </li>
           </ul>
     </nav>
@@ -28,7 +28,7 @@
         <ul>
           <% for(const post of posts){ %>
             <li>
-                <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <img src="https://avatar.oxro.io/avatar.svg?name=<%= users.first_name %>+<%= users.last_name %>&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
                 <h1>I feel like <%= post.mood %></h1>
                 <p> <%= post.post_content %></p>
             </li>
