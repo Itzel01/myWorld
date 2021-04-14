@@ -16,6 +16,17 @@ const findPost = (req, res, next) => {
     })
 }
 
+const getPosts = async (req, res) => {
+    let posts = await Post.getPosts();
+    res.status(200).json(posts);
+}
+
+const getPost = async (req, res) => {
+    const id = req.params.id;
+    let post = await Post.getPost(id);
+    res.status(200).json(post);
+}
+
 const newPost = async (req, res) => {
     console.log(req.body)
     try {
@@ -30,23 +41,6 @@ const newPost = async (req, res) => {
     }
 }
 
-const deletePost = async (req, res) => {
-    const id = req.id
-    await Post.deletePost(id)
-    res.status(200).json({msg: "Post was successfully deleted"})
-}
-
-const getPosts = async (req, res) => {
-    let posts = await Post.getPosts();
-    res.status(200).json(posts);
-}
-
-const getPost = async (req, res) => {
-    const id = req.params.id;
-    let post = await Post.getPost(id);
-    res.status(200).json(post);
-}
-
 const updatePost = async (req, res) => {
     const id = req.id;
     const updatedPost = Object.assign(req.post, req.body)
@@ -59,11 +53,17 @@ const updatePost = async (req, res) => {
     }
 }
 
+const deletePost = async (req, res) => {
+    const id = req.id
+    await Post.deletePost(id)
+    res.status(200).json({msg: "Post was successfully deleted"})
+}
+
 module.exports = {
     findPost,
-    newPost,
-    deletePost,
     getPosts,
     getPost,
-    updatePost
+    newPost,
+    updatePost,
+    deletePost
 }
