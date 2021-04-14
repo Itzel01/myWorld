@@ -1,1 +1,15 @@
 <%- include("./layout/main.ejs") -%>
+
+<body>
+    <h1>Edit Your Post</h1>
+    <form action="/blogs/<%=blog.id%>?_method=PATCH" method="post">
+        <label for="mood" class="label">Mood:</label> <br>
+        <input type="text" name="mood" value= <%= blog.title %>> <br>
+
+        <label for="blog_content">Blog Content:</label> <br>
+        <textarea name="blog_content"> <%= blog.blog_content %> </textarea> <br>
+
+        <button type="submit"> Resubmit Blog </button>
+    </form> 
+ </body>
+ </html>

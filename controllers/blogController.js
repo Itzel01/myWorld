@@ -40,13 +40,14 @@ const newBlog = async (req, res) => {
 
 const updateBlog = async (req, res) => {
     const id = req.id;
-   // console.log(id)
     const updatedBlog = Object.assign(req.blog, req.body)
-    console.log(updatedBlog)
     try{
-        const blogInfo = await Blog.updateBlog(id, updatedBlog)
-        console.log(blogInfo)
-        res.status(200).json(blogInfo)
+        const blog = await Blog.updateBlog(id, updatedBlog)
+        if(req.query.format === 'json'){
+            res.status(200).json(blog)
+        } else {
+            res.redirect(`/posts`);
+        }
     }catch{
         res.status(500)
     }
