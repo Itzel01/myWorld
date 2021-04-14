@@ -1,1 +1,20 @@
 <%- include("./layout/main.ejs") -%>
+<body>
+    <form action='/register' method='post'>
+        <div>
+            <label for='user_name'>User name</label>
+            <input name='user_name'/>
+        </div>
+        <div>
+            <label for='email'>Email</label>
+            <input name='email'/>
+        </div>
+        <div>
+            <label for='encypted_password'>Password</label>
+            <input name='encypted_password'/>
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
+    <a href="/login">Login</a>
+</body>
+</html>

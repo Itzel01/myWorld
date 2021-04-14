@@ -18,7 +18,16 @@ const findPost = (req, res, next) => {
 
 const getPosts = async (req, res) => {
     let posts = await Post.getPosts();
-    res.status(200).json(posts);
+    try{
+        if(req.query.format === 'json'){
+            res.status(200).json(posts)
+        } else {
+            res.render('explore', {posts})
+        }
+    } catch {
+        res.status(500)
+    }
+    
 }
 
 const getPost = async (req, res) => {
