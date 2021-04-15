@@ -1,4 +1,5 @@
 const {Post} = require('../models/Post')
+const {User} = require('../models/User')
 
 const findPost = (req, res, next) => {
     const id = req.params.id;
@@ -36,8 +37,9 @@ const getEditForm = async (req, res) => {
 const newPostForm = async (req, res) => {
    // debugger
     let id = req.params.id
+    let user = await User.getUser(id);
     console.log(id)
-    res.render('postForm', {id, LinkTo: `/posts/${id}/new`, title: "Create New Post"})
+    res.render('postForm', {user, id, LinkTo: `/posts/${id}/new`, title: "Create New Post"})
 }
 
 const newPost = async (req, res) => {
