@@ -33,16 +33,21 @@ const getEditForm = async (req, res) => {
 }
 
 const newBlogForm = (req, res) => {
-    res.render('blogForm', {LinkTo: "/blogs/new", title: "Create New Blog"})
+    let id = req.params.id
+    //console.log(id)
+    res.render('blogForm', {id, LinkTo: `/blogs/${id}/new`, title: "Create New Blog"})
 }
 
 const newBlog = async (req, res) => {
+    const id = req.params.id
+    console.log(id)
     try {
-        let newBlog = await Blog.newBlog(req.body);
+        let newBlog = await Blog.newBlog(req.body, id);
+        console.log(newBlog)
         if(req.query.format === 'json'){
             res.status(201).json(newBlog)
         } else {
-            res.redirect('/profile')
+            res.redirect(`/profile/${id}`)
         }
     } catch {
         res.status(404).json({msg: "Blog wasn't made successfully"})

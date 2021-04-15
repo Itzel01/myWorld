@@ -6,10 +6,10 @@ class Post {
         return db.query(queryText, [id]).then(results => results.rows[0]);
     } 
 
-    static newPost(postInfo){
-        let {mood, post_content, user_id} = postInfo
+    static newPost(postInfo, id){
+        let {mood, post_content} = postInfo
         const queryText = `INSERT INTO posts (mood, post_content, user_id, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *`
-        return db.query(queryText, [mood, post_content, user_id]).then(results => results.rows[0])
+        return db.query(queryText, [mood, post_content, id]).then(results => results.rows[0])
     }
 
     static deletePost(id){
