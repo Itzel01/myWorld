@@ -43,14 +43,14 @@ app.get('/register', (req, res) => {
     res.render('register')
 })
 
-// app.get("/explore", (req, res) => {
-//     let {user} = req.session
-//     if(user) {
-//       res.render("explore", {user})
-//     } else {
-//       res.redirect("/login")
-//     }
-// });
+app.get("/explore", (req, res) => {
+    let {user} = req.session
+    if(user) {
+      res.render("explore", {user})
+    } else {
+      res.redirect("/login")
+    }
+});
 
 app.use('/login', loginRouter)
 app.use('/register', registerRouter)
