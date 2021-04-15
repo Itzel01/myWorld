@@ -39,13 +39,13 @@ const register = async (req, res) => {
 const getExplore = async (req, res) => {
     const allPosts = await User.getAllPosts();
     const allBlogs = await User.getAllBlogs();
+    let user = req.session.user
     let id = req.session.user.id
-        //debugger
     try{
         if(req.query.format === 'json'){
             res.status(200).json(allPosts)
         } else {
-            res.render('explore', {id, allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
+            res.render('explore', {user, id, allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
         }
     } catch {
         res.status(500)
@@ -53,7 +53,7 @@ const getExplore = async (req, res) => {
 }
 
 const getProfile = async (req, res) => {
-    debugger
+    // debugger
     //console.log(req.session.user.id)
     let id = req.params.id
     let posts = await Auth.getPosts(id);
