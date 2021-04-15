@@ -22,6 +22,7 @@ const login = async(req, res) => {
                 //res.redirect(`/explore/${user.id}/`)
                 res.render('explore', {user, allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
             } else {
+                res.status(401)
                 res.send("Whoops, one of your credentials wasn't right")
             }
         })
