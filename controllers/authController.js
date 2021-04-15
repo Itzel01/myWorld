@@ -56,13 +56,14 @@ const getProfile = async (req, res) => {
     // debugger
     //console.log(req.session.user.id)
     let id = req.params.id
+    let user = await User.getUser(id);
     let posts = await Auth.getPosts(id);
     let blogs = await Auth.getBlogs(id);
     try{
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('profile', {id: posts.user_id, posts, blogs, LinkTo: '/profile', title: "User's profile", })
+            res.render('profile', {user, id: posts.user_id, posts, blogs, LinkTo: '/profile', title: "User's profile", })
         }
     } catch {
         res.status(500)
