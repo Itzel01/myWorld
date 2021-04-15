@@ -53,8 +53,6 @@ const getExplore = async (req, res) => {
 }
 
 const getProfile = async (req, res) => {
-    // debugger
-    //console.log(req.session.user.id)
     let id = req.params.id
     let posts = await Auth.getPosts(id);
     let blogs = await Auth.getBlogs(id);
