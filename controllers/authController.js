@@ -13,14 +13,13 @@ const getRegister = async (req, res) => {
 const login = async(req, res) => {
     const {email, password} = req.body
     const user = await Auth.login(req.body)
-    const allPosts = await User.getAllPosts();
-    const allBlogs = await User.getAllBlogs();
+    // const allPosts = await User.getAllPosts();
+    // const allBlogs = await User.getAllBlogs();
     if(user){
         bcrypt.compare(password, user.encrypted_password, (err, results) => {
             if(results){
                 req.session.user = user
-                //res.redirect(`/explore/${user.id}/`)
-                res.render('explore', {user, allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
+                res.redirect(`/explore`)
             } else {
                 res.status(401)
                 res.send("Whoops, one of your credentials wasn't right")
@@ -38,15 +37,15 @@ const register = async (req, res) => {
 
 
 const getExplore = async (req, res) => {
-    let allPosts = await User.getAllPosts();
-    let allBlogs = await User.getAllBlogs();
-    debugger
+    const allPosts = await User.getAllPosts();
+    const allBlogs = await User.getAllBlogs();
+    let id = req.session.user.id
+        //debugger
     try{
         if(req.query.format === 'json'){
             res.status(200).json(allPosts)
         } else {
-            // res.redirect(`/explore`)
-            res.render('explore', {allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
+            res.render('explore', {id, allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
         }
     } catch {
         res.status(500)
@@ -54,7 +53,8 @@ const getExplore = async (req, res) => {
 }
 
 const getProfile = async (req, res) => {
-    //console.log(req.session)
+    debugger
+    //console.log(req.session.user.id)
     let id = req.params.id
     let posts = await Auth.getPosts(id);
     let blogs = await Auth.getBlogs(id);
@@ -62,7 +62,7 @@ const getProfile = async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('profile', {id, posts, blogs, LinkTo: '/profile', title: "User's profile", })
+            res.render('profile', {id: posts.user_id, posts, blogs, LinkTo: '/profile', title: "User's profile", })
         }
     } catch {
         res.status(500)

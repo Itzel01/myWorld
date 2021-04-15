@@ -1,37 +1,10 @@
 <%- include("./layout/main.ejs") -%>
 <body>
-  <nav>
-    <ul>
-        <li>
-            <a>Hamburger</a>
-            <ul>
-                <a href="/blogs/new"><li>Create Blog</li></a>
-                <a href="/posts/new"><li>Create Post</li></a>
-                <a href="#"><li>My Playlist</li></a>
-                <a href="/explore"><li>Explore Page</li></a>
-                <a href="/logout"><li>Logout</li></a>
-            </ul>
-        </li>
-        <li> <a href= "<%= LinkTo %>"><h1><%= title %></h1></a> </li>
-        <li>
-            <form id="search" action="">
-                <input id="search-input" type="search" name="search-bar" placeholder="Search">
-            </form>
-        </li>
-        <li>
-            <a href="/profile/<%= id %>"><img src="https://avatar.oxro.io/avatar.svg?name=Profile+Image&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
-        </li>
-        <li>
-            <form action="">
-                <label for="toggle-light-dark">light/dark mode</label>
-                <input type="checkbox" name="toggle-light-dark">
-            </form>
-        </li>
-      </ul>
-</nav>
-    <div>
+    
+    <%- include("./layout/nav.ejs") -%>
+    <!-- <div>
         <h1>Music Section</h1>
-    </div>
+    </div> -->
     <div>
         <h3>Posts</h3>
         <ul id="findPost">
