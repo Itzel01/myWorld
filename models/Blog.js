@@ -6,12 +6,11 @@ class Blog {
         return db.query(queryText, [id]).then(results => results.rows[0]);
     } 
 
-    static newBlog(details){
-        let {title, blog_content, user_id} = details
-        debugger
-        console.log(title, blog_content, user_id)
+    static newBlog(details, id){
+        let {title, blog_content} = details
+        console.log(title, blog_content, id)
         const queryText = `INSERT INTO blogs (title, blog_content, user_id, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *`
-        return db.query(queryText, [title, blog_content, user_id]).then(results => results.rows[0])
+        return db.query(queryText, [title, blog_content, id]).then(results => results.rows[0])
     }
 
     static deleteBlog(id){

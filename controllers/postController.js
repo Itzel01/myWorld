@@ -29,21 +29,27 @@ const getPost = async (req, res) => {
 
 const getEditForm = async (req, res) => {
     let post = req.post
-    let id = req.params.id
+    //let id = req.params.id
     res.render('postEditForm', {post, LinkTo: "/profile", title: "Edit Post"})
 }
 
 const newPostForm = async (req, res) => {
-    res.render('postForm', {LinkTo: "/posts/new", title: "Create New Post"})
+   // debugger
+    let id = req.params.id
+    console.log(id)
+    res.render('postForm', {id, LinkTo: `/posts/${id}/new`, title: "Create New Post"})
 }
 
 const newPost = async (req, res) => {
+    const id = req.params.id
     try {
-        let newPost = await Post.newPost(req.body)
+        let newPost = await Post.newPost(req.body, id)
+        //debugger
+        console.log(newPost)
         if(req.query.format === 'json'){
             res.status(201).json(newPost)
         } else {
-            res.redirect('/profile')
+            res.redirect(`/profile/${id}`)
         }
     } catch {
         res.status(404).json({msg: "Post wasn't made successfully"})
