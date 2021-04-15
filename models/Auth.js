@@ -19,6 +19,15 @@ class Auth {
         })
   
     }
+    static getPosts () {
+        const queryText = 'SELECT * FROM posts;'
+        return db.query(queryText).then(results => results.rows);
+    }
+    
+    static getBlogs () {
+        const queryText = 'SELECT * FROM blogs;'
+        return db.query(queryText).then(results => results.rows);
+    }
 
 }
 
