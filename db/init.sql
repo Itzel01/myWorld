@@ -30,12 +30,12 @@ CREATE TABLE posts (id SERIAL PRIMARY KEY, mood TEXT, post_content TEXT, created
 
 -- INSERT some data into posts
 INSERT INTO posts (user_id, mood, post_content, created_at) VALUES
-	(1, 'current mood', 'content',  now()),
-	(2, 'current mood', 'content', now()),
-	(3, 'current mood', 'content', now()),
-	(1, 'current mood', 'content', now()),
-	(2, 'current mood', 'content', now()),
-	(3, 'current mood', 'content', now());
+	(1, ':)', 'GLAD to be demoing for you guys',  now()),
+	(2, '>.<', 'I want tacos', now()),
+	(4, '<3', 'I love myself', now()),
+	(1, 'HAPPY', 'Love what I do', now()),
+	(2, 'Sad', 'I need food', now()),
+	(3, 'nonchalant', 'welp here we are', now());
 	
 -- CREATE TABLE playlists
 CREATE TABLE playlists (id SERIAL PRIMARY KEY, user_id INT REFERENCES users(id), title TEXT,  artist TEXT, media_link TEXT);

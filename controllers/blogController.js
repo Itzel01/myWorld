@@ -30,13 +30,13 @@ const getBlog = async (req, res) => {
 
 const getEditForm = async (req, res) => {
     let blog = req.blog
-    res.render('editBlogForm', {blog, LinkTo: "/profile", title: "Edit Blog"})
+    let user = await User.getUser(blog.user_id);
+    res.render('editBlogForm', {user, blog, id: user.id, LinkTo: `/blogs/${blog.id}/edit`, title: "Edit Blog"})
 }
 
 const newBlogForm = async (req, res) => {
     let id = req.params.id
     let user = await User.getUser(id);
-    //console.log(id)
     res.render('blogForm', {user, id, LinkTo: `/blogs/${id}/new`, title: "Create New Blog"})
 }
 
@@ -64,7 +64,7 @@ const updateBlog = async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(blog)
         } else {
-            res.redirect(`/profile`);
+            res.redirect(`/profile/${blog.user_id}`);
         }
     }catch{
         res.status(500)
@@ -72,12 +72,14 @@ const updateBlog = async (req, res) => {
 }
 
 const deleteBlog = async (req, res) => {
-    const id = req.params.id
+   // debugger
+    const user = req.blog.user_id 
+    const id = req.id
     await Blog.deleteBlog(id)
     if(req.query.format === 'json'){
         res.status(200).json({msg: "Blog was successfully deleted"})
     } else {
-        res.redirect('/profile')
+        res.redirect(`/profile/${user}`)
     }
 }
 
