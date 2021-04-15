@@ -29,11 +29,12 @@ const getPost = async (req, res) => {
 
 const getEditForm = async (req, res) => {
     let post = req.post
-    res.render('postEditForm', {post})
+    let id = req.params.id
+    res.render('postEditForm', {post, LinkTo: "/profile", title: "Edit Post"})
 }
 
 const newPostForm = async (req, res) => {
-    res.render('postForm')
+    res.render('postForm', {LinkTo: "/posts/new", title: "Create New Post"})
 }
 
 const newPost = async (req, res) => {
@@ -67,7 +68,12 @@ const updatePost = async (req, res) => {
 const deletePost = async (req, res) => {
     const id = req.id
     await Post.deletePost(id)
-    res.status(200).json({msg: "Post was successfully deleted"})
+    if(req.query.format === 'json'){
+        res.status(200).json({msg: "Post was successfully deleted"})
+    } else {
+        res.redirect('/profile')
+    }
+    
 }
 
 module.exports = {

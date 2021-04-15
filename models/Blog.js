@@ -8,6 +8,7 @@ class Blog {
 
     static newBlog(details){
         let {title, blog_content, user_id} = details
+        debugger
         console.log(title, blog_content, user_id)
         const queryText = `INSERT INTO blogs (title, blog_content, user_id, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *`
         return db.query(queryText, [title, blog_content, user_id]).then(results => results.rows[0])

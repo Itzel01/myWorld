@@ -1,5 +1,8 @@
 <%- include("./layout/main.ejs") -%>
 <body>
+    <%- include("./layout/login-register-nav.ejs") -%>
+    <h1>My World</h1>
+    <h2>A social media where you don't have to be you</h2>
     <form action='/login/' method='post'>
         <div>
             <label for='email'>Email</label>
@@ -7,7 +10,7 @@
         </div>
         <div>
             <label for='password'>Password</label>
-            <input name='password'/>
+            <input type="password" name='password'/>
         </div>
         <button type="submit">Login</button>
     </form>

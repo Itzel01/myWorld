@@ -1,56 +1,42 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     
-    <nav>
-        <ul>
-            <li>
-                <a>Hamburger</a>
-                <ul>
-                    <a href="/blogs/new"><li>Create Blog</li></a>
-                    <a href="/posts/new"><li>Create Post</li></a>
-                    <a href=""><li>My Playlist</li></a>
-                    <a href="/explore"><li>Explore Page</li></a>
-                </ul>
-            </li>
-            <li> <a href="/profile"><h1>User's profile</h1></a> </li>
-            <li>
-                <form action="">
-                    <input type="search" name="search-bar" placeholder="Search" id="">
-                </form>
-            </li>
-            <li>
-                <a href="/profile"><img src="https://avatar.oxro.io/avatar.svg?name=Profile+Image&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
-            </li>
-          </ul>
-    </nav>
+    <%- include("./layout/nav.ejs") -%>
     <div>
         <h1>Music Section</h1>
     </div>
     <div>
         <h3>Posts</h3>
-        <ul>
+        <ul id="findPost">
           <% for(const post of posts){ %>
             <li>
                 <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
                 <h1> Mood: <%= post.mood %></h1>
                 <p> <%= post.post_content %></p>
                 <a href="/posts/<%=post.id%>/edit">Edit Post</a>
+                <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
+                    <button type="submit">DELETE POST?</button>
+                </form>
             </li>
           <% } %>
         </ul>
         </div>
         <div>
             <h3>Recent blogs</h3>
-            <ul>
+            <ul id="findBlog">
               <% for(const blog of blogs){ %>
                 <li>
                     <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=3&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
                     <h1><%= blog.title %></h1>
                     <p> <%= blog.blog_content %></p>
                     <a href="/blogs/<%=blog.id%>/edit">Edit Blog</a>
+                    <form action="/blogs/<%=blog.id%>?_method=DELETE" method="post">
+                        <button type="submit">DELETE BLOG?</button>
+                    </form>
                 </li>
               <% } %>
             </ul>
             </div>  
 </body>
+<%- include("./layout/script.ejs") -%>
 </html>

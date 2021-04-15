@@ -29,11 +29,11 @@ const getBlog = async (req, res) => {
 
 const getEditForm = async (req, res) => {
     let blog = req.blog
-    res.render('editBlogForm', {blog})
+    res.render('editBlogForm', {blog, LinkTo: "/profile", title: "Edit Blog"})
 }
 
 const newBlogForm = (req, res) => {
-    res.render('blogForm')
+    res.render('blogForm', {LinkTo: "/blogs/new", title: "Create New Blog"})
 }
 
 const newBlog = async (req, res) => {
@@ -67,7 +67,11 @@ const updateBlog = async (req, res) => {
 const deleteBlog = async (req, res) => {
     const id = req.params.id
     await Blog.deleteBlog(id)
-    res.status(200).json({msg: "Blog was successfully deleted"})
+    if(req.query.format === 'json'){
+        res.status(200).json({msg: "Blog was successfully deleted"})
+    } else {
+        res.redirect('/profile')
+    }
 }
 
 module.exports = {

@@ -9,11 +9,11 @@ class Auth {
     }
 
     static register(details){
-        bcrypt.hash(details.encypted_password, 10, (err, hash) => {
+        bcrypt.hash(details.encrypted_password, 10, (err, hash) => {
             if(err){
                 res.send("whoops")
             } else {
-                const queryText = "INSERT INTO users (first_name, last_name, user_name, email, encypted_password) VALUES ($1, $2, $3, $4, $5) RETURNING user_name, email"
+                const queryText = "INSERT INTO users (first_name, last_name, user_name, email, encrypted_password) VALUES ($1, $2, $3, $4, $5) RETURNING user_name, email"
                 return db.query(queryText, [details.first_name, details.last_name, details.user_name, details.email, hash]).then(results => results.rows[0])
             }
         })
