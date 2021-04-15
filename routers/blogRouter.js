@@ -3,7 +3,10 @@ const router = express.Router();
 const blogController = require('../controllers/blogController');
 
 //gets form to make new post
-router.get('/new', blogController.newBlogForm)
+router.get('/:id/new', blogController.newBlogForm)
+
+//makes a new blog
+router.post('/:id', blogController.newBlog)
 
 //middleware to find the blog
 router.use('/:id', blogController.findBlog)

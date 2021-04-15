@@ -3,7 +3,7 @@
 <body>
     <%- include("./layout/nav.ejs") -%>
     <h1>New Post</h1>
-    <form action="/posts/" method="post">
+    <form action="/posts/<%= id %>" method="post">
         <label for="mood" class="label">Mood:</label> <br>
         <input type="text" name="mood" placeholder="insert an empji to describe your mood"> <br>
 
