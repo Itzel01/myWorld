@@ -38,14 +38,15 @@ const register = async (req, res) => {
 
 
 const getExplore = async (req, res) => {
-    // let allPosts = await User.getAllPosts();
-    // let allBlogs = await User.getAllBlogs();
+    let allPosts = await User.getAllPosts();
+    let allBlogs = await User.getAllBlogs();
+    debugger
     try{
         if(req.query.format === 'json'){
             res.status(200).json(allPosts)
         } else {
-            res.redirect(`/explore`)
-            //res.render('explore', {allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
+            // res.redirect(`/explore`)
+            res.render('explore', {allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
         }
     } catch {
         res.status(500)
@@ -61,7 +62,7 @@ const getProfile = async (req, res) => {
         if(req.query.format === 'json'){
             res.status(200).json(posts)
         } else {
-            res.render('profile', {posts, blogs, LinkTo: '/profile', title: "User's profile", })
+            res.render('profile', {id, posts, blogs, LinkTo: '/profile', title: "User's profile", })
         }
     } catch {
         res.status(500)
