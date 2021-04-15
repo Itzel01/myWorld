@@ -31,6 +31,10 @@ app.get(["/explore", "/profile"], (req, res, next) => {
     }
 });
 
+app.get('/', (req, res) => {
+    res.redirect('/login')
+})
+
 app.use('/', authRouter)
 app.use('/blogs', blogRouter)
 app.use('/users', userRouter)
