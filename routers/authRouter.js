@@ -12,6 +12,6 @@ router.post('/register', authController.register);
 
 router.get('/explore', authController.getExplore)
 
-router.get('/profile', authController.getProfile)
+router.get('/profile/:id', authController.getProfile)
 
 module.exports = router
