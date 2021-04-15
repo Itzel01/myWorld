@@ -19,14 +19,14 @@ class Auth {
         })
   
     }
-    static getPosts () {
-        const queryText = 'SELECT * FROM posts;'
-        return db.query(queryText).then(results => results.rows);
+    static getPosts (id) {
+        const queryText = 'SELECT * FROM posts WHERE posts.user_id = $1;'
+        return db.query(queryText, [id]).then(results => results.rows);
     }
     
-    static getBlogs () {
-        const queryText = 'SELECT * FROM blogs;'
-        return db.query(queryText).then(results => results.rows);
+    static getBlogs (id) {
+        const queryText = 'SELECT * FROM blogs WHERE blogs.user_id = $1;'
+        return db.query(queryText, [id]).then(results => results.rows);
     }
 
 }
