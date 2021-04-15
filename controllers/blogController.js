@@ -1,4 +1,5 @@
 const {Blog} = require('../models/Blog')
+const {User} = require('../models/User')
 
 const findBlog = (req, res, next) => {
     const id = req.params.id;
@@ -32,10 +33,11 @@ const getEditForm = async (req, res) => {
     res.render('editBlogForm', {blog, LinkTo: "/profile", title: "Edit Blog"})
 }
 
-const newBlogForm = (req, res) => {
+const newBlogForm = async (req, res) => {
     let id = req.params.id
+    let user = await User.getUser(id);
     //console.log(id)
-    res.render('blogForm', {id, LinkTo: `/blogs/${id}/new`, title: "Create New Blog"})
+    res.render('blogForm', {user, id, LinkTo: `/blogs/${id}/new`, title: "Create New Blog"})
 }
 
 const newBlog = async (req, res) => {
