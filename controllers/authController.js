@@ -19,6 +19,7 @@ const login = async(req, res) => {
                 req.session.user = user
                 res.redirect('/explore')
             } else {
+                res.status(401)
                 res.send("Whoops, one of your credentials wasn't right")
             }
         })
