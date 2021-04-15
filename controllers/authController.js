@@ -1,5 +1,14 @@
-const {Auth} = require('../models/Auth')
+const {Auth} = require('../models/Auth');
+const {User} = require('../models/User')
 const bcrypt = require('bcrypt')
+
+const getLogin = async (req, res) => {
+    res.render('login')
+}
+
+const getRegister = async (req, res) => {
+    res.render('register')
+}
 
 const login = async(req, res) => {
     const {email, password} = req.body
@@ -23,7 +32,40 @@ const register = async (req, res) => {
     res.redirect('/login')
 }
 
+
+const getExplore = async (req, res) => {
+    let allPosts = await User.getAllPosts();
+    let allBlogs = await User.getAllBlogs();
+    try{
+        if(req.query.format === 'json'){
+            res.status(200).json(allPosts)
+        } else {
+            res.render('explore', {allPosts, allBlogs, LinkTo: "/explore", title: "Welcome To MyWorld"})
+        }
+    } catch {
+        res.status(500)
+    }
+}
+
+const getProfile = async (req, res) => {
+    let posts = await Auth.getPosts();
+    let blogs = await Auth.getBlogs();
+    try{
+        if(req.query.format === 'json'){
+            res.status(200).json(posts)
+        } else {
+            res.render('profile', {posts, blogs, LinkTo: "/profile", title: "User's profile"})
+        }
+    } catch {
+        res.status(500)
+    }
+}
+
 module.exports = {
+    getLogin,
+    getRegister,
     login,
-    register
+    register,
+    getExplore,
+    getProfile
 }

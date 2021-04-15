@@ -19,6 +19,16 @@ class User {
         const queryText = 'SELECT * FROM users join blogs ON users.id = blogs.user_id'
         return db.query(queryText).then(results => results.rows);
     }
+
+    // static getPosts () {
+    //     const queryText = 'SELECT * FROM posts;'
+    //     return db.query(queryText).then(results => results.rows);
+    // }
+
+    // static getBlogs () {
+    //     const queryText = 'SELECT * FROM blogs;'
+    //     return db.query(queryText).then(results => results.rows);
+    // }
 }
 
 module.exports = {User}
