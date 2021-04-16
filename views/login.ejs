@@ -1,19 +1,32 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     <%- include("./layout/login-register-nav.ejs") -%>
-    <h1>My World</h1>
-    <h2>A social media where you don't have to be you</h2>
-    <form action='/login' method='post'>
-        <div>
-            <label for='email'>Email</label>
-            <input name='email'/>
-        </div>
-        <div>
-            <label for='password'>Password</label>
-            <input type="password" name='password'/>
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <a href="/register">Create Account</a>
+    <div class="container">
+    <h1 class="ui centered header">My World</h1>
+    <h2 class="ui centered header">Its not a popularity contest guys!</h2>
+    <div class="ui centered large card">
+        <form class="ui form" action='/login' method='post'>
+            <div class="field">
+                <div class="ui labeled input">
+                    <label  class="ui label" for='email'>Email: </label>
+                    <input name='email'/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui labeled input">
+                    <label  class="ui label" for='password'>Password: </label>
+                    <input type="password" name='password'/>
+                </div>
+            </div>
+            <div class="field">
+                <button class="fluid ui blue button " type="submit">Login</button>
+            </div>
+        </form>
+        <!-- <button class="fluid ui green button"> Create Account </button> -->
+        <a href="/register">
+            <button class="fluid ui green button"> Create Account </button>
+        </a>
+    </div>
+    </div>
 </body>
 </html>
