@@ -1,32 +1,49 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     <%- include("./layout/login-register-nav.ejs") -%>
-    
-    <h1>My World</h1>
-    <h2>To access everything my world has to offer you must first make an account</h2>
-    <form action='/register' method='post'>
-        <div>
-            <label for='first_name'>First name</label>
-            <input name='first_name'/>
+    <div class="container">
+        <h1 class="ui centered header">My World</h1>
+        <h2 class="ui centered header">To access everything my world has to offer you must first make an account</h2>
+        <div class="ui centered large card">
+            <form class="ui form" action='/register' method='post'>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <label class="ui label" for='first_name'>First name</label>
+                        <input name='first_name'/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <label class="ui label" for='last_name'>Last name</label>
+                        <input name='last_name'/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <label class="ui label" for='user_name'>User name</label>
+                        <input name='user_name'/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <label class="ui label" for='email'>Email</label>
+                        <input name='email'/>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui labeled input">
+                        <label class="ui label" for='encrypted_password'>Password</label>
+                        <input type="password" name='encrypted_password'/>
+                    </div>
+                </div>
+                <div class="field">
+                    <button class="fluid ui blue button" type="submit">Create Account</button>
+                </div>
+            </form>
+            <a href="/login">   
+                <button class="fluid ui green button"> Login </button>
+            </a>
         </div>
-        <div>
-            <label for='last_name'>Last name</label>
-            <input name='last_name'/>
-        </div>
-        <div>
-            <label for='user_name'>User name</label>
-            <input name='user_name'/>
-        </div>
-        <div>
-            <label for='email'>Email</label>
-            <input name='email'/>
-        </div>
-        <div>
-            <label for='encrypted_password'>Password</label>
-            <input type="password" name='encrypted_password'/>
-        </div>
-        <button type="submit">Create Account</button>
-    </form>
-    <a href="/login">Login</a>
+    </div>
 </body>
 </html>
