@@ -2,15 +2,23 @@
 
 <body>
     <%- include("./layout/nav.ejs") -%>
-    <h1>New Blog</h1>
-    <form action="/blogs/<%= id %>" method="post">
-        <label for="title" class="label">Title:</label> <br>
+    <div class="ui raised very padded text container segment">
+    <h1 class="ui centered header">New Blog</h1>
+    <form class="ui form" action="/blogs/<%= id %>" method="post">
+        <div class="field">
+            <div class="ui">
+        <label class="ui label" for="title" class="label">Title:</label> <br>
         <input type="text" name="title" placeholder="Blog Title"> <br>
-
-        <label for="blog_content">Blog Content:</label> <br>
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui">
+        <label class="ui label"for="blog_content">Blog Content:</label> <br>
         <textarea name="blog_content"> </textarea> <br>
-
-        <button type="submit"> Submit Blog </button>
-    </form> 
+            </div>
+        </div>
+        <button class="fluid ui purple button" type="submit"> Submit Blog </button>
+    </form>
+    </div>
  </body>
  </html>

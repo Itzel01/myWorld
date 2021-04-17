@@ -2,25 +2,23 @@
 
 <body>
     <%- include("./layout/nav.ejs") -%>
-    <div class="container">
+    <div class="ui raised very padded text container segment">
     <h1 class="ui centered header">New Post</h1>
-    <div class="ui centered large card">
     <form class="ui form" action="/posts/<%= id %>" method="post">
         <div class="field">
-            <div class="ui labeled input">
+            <div class="ui">
                 <label class="ui label" for="mood" class="label">Mood:</label> <br>
                 <input type="text" name="mood" placeholder="insert an empji to describe your mood"> <br>
             </div>
         </div>
         <div class="field">
-            <div class="ui labeled input">
+            <div class="ui">
         <label class="ui label" for="post_content">Post Content:</label> <br>
-        <textarea name="post_content"> </textarea> <br>
+        <textarea name="post_content"></textarea> <br>
             </div>
         </div>
-        <button class="fluid ui blue button" type="submit"> Submit Post </button>
+        <button class="fluid ui green button" type="submit"> Submit Post </button>
     </form>
-    </div>
     </div>
  </body>
  </html>
