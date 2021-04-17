@@ -3,28 +3,31 @@
     
   <%- include("./layout/nav.ejs") -%>
     <div>
-        <h3>Recent posts</h3>
+        <h2 class="ui centered header">Recent posts</h2>
         <ul id="findPost">
           <% for(const post of allPosts){ %>
-            <li>
-                <img src="https://avatar.oxro.io/avatar.svg?name=<%= post.first_name %>+<%= post.last_name %>&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
-                <h2><%= post.user_name %></h2>
+            <div class="ui raised very padded text container segment">
+              <div class="ui"></div>
+                <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= post.first_name %>+<%= post.last_name %>&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <span class="ui header"><%= post.user_name %></span>
+                <hr>
                 <h1><%= post.mood %></h1>
                 <p><%= post.post_content %></p>
-            </li>
+            </div>
           <% } %>
         </ul>
     </div>
     <div>
-          <h3>Recent blogs</h3>
+          <h2 class="ui centered header">Recent blogs</h2>
           <ul id="findBlog">
             <% for(const blog of allBlogs){ %>
-              <li>
-                  <img src="https://avatar.oxro.io/avatar.svg?name=<%= blog.first_name %>+<%= blog.last_name %>&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
-                  <h2><%= blog.user_name %></h2>
+              <div class="ui raised very padded text container segment">
+                  <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= blog.first_name %>+<%= blog.last_name %>&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                  <span class="ui header"><%= blog.user_name %></span>
+                  <hr>
                   <h1><%= blog.title %></h1>
                   <p> <%= blog.blog_content %></p>
-              </li>
+              </div>
             <% } %>
           </ul>
           </div>

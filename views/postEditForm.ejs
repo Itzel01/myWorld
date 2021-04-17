@@ -2,15 +2,23 @@
 
 <body>
     <%- include("./layout/nav.ejs") -%>
-    <h1>Edit Your Post</h1>
-    <form action="/posts/<%=post.id%>?_method=PATCH" method="post">
-        <label for="mood" class="label">Mood:</label> <br>
+    <div class="ui raised very padded text container segment"> 
+    <h1 class="ui centered header">Edit Your Post</h1>
+    <form class="ui form" action="/posts/<%=post.id%>?_method=PATCH" method="post">
+        <div class="field">
+            <div class="ui">
+        <label class="ui label" for="mood" class="label">Mood:</label> <br>
         <input type="text" name="mood" value= <%= post.mood %>> <br>
-
-        <label for="post_content">Post Content:</label> <br>
-        <textarea name="post_content"> <%= post.post_content %> </textarea> <br>
-
-        <button type="submit"> Resubmit Post </button>
-    </form> 
+            </div>
+        </div>
+        <div class="field">
+            <div class="ui">
+        <label class="ui label" for="post_content">Post Content:</label> <br>
+        <textarea name="post_content"><%= post.post_content %></textarea> <br>
+            </div>
+        </div>
+        <button class="fluid ui blue button" type="submit"> Resubmit Post </button>
+    </form>
+    </div>
  </body>
  </html>
