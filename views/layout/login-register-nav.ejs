@@ -1,15 +1,36 @@
+<!--Start: Nav  -->
 <nav>
-    <ul>
-        <li>
-            <a>Hamburger</a>
-            <ul>
-                <a href="/login"><li>Login</li></a>
-            </ul>
-        <li>
-            <form action="">
-                <label for="toggle-light-dark">light/dark mode</label>
-                <input type="checkbox" name="toggle-light-dark">
-            </form>
-        </li>
-      </ul>
+<div class="ui sticky borderless huge menu" style="background-color: aliceblue;">
+    <div class="ui container grid"> 
+      <!--Start: Desktop Nav-->
+      <div class="computer only row">
+        <a href="/login" class="left menu item">MyWorld    
+        </a>
+        <div class="right menu">
+                <div class="item">
+                  <div class="ui toggle checkbox">
+                    <label for="toggle-light-dark">
+                      <i class="adjust teal icon"></i>light/dark mode</label>
+                    <input id ="toggle" type="checkbox" name="public">
+              </div>
+          
+        </div>
+      </div>
+    </div>
+    <!--End: Desktop Nav-->
+    <!--Start: Mobile Nav-->
+  <div class="tablet mobile only row">
+    <a href="/login" class="header item"> MyWorld</a>
+    <div class="right menu">
+        <div class="item">
+            <div class="ui toggle checkbox">
+              <label for="toggle-light-dark">
+                <i class="adjust teal icon"></i>light/dark mode</label>
+              <input id ="toggle" type="checkbox" name="public">
+            </div>
+          </div>
+    </div>
+  <!--End: Mobile Nav-->
+</div>
+</div>
 </nav>

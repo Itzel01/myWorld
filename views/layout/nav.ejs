@@ -1,29 +1,135 @@
-<nav>
-    <ul>
-        <li>
-            <a>Hamburger</a>
-            <ul>
-                <a href="/blogs/<%= id %>/new"><li>Create Blog</li></a>
-                <a href="/posts/<%= id %>/new"><li>Create Post</li></a>
-                <a href="#"><li>My Playlist</li></a>
-                <a href="/explore"><li>Explore Page</li></a>
-                <a href="/logout"><li>Logout</li></a>
-            </ul>
-        </li>
-        <li> <a href= "<%= LinkTo %>"><h1><%= title %></h1></a> </li>
-        <li>
-            <form id="search" action="">
-                <input id="search-input" type="search" name="search-bar" placeholder="Search">
-            </form>
-        </li>
-        <li>
-            <a href="/profile/<%= id %>"><img src="https://avatar.oxro.io/avatar.svg?name=<%= user.first_name %>+<%= user.last_name %>&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;"></a>
-        </li>
-        <li>
-            <form action="">
-                <label for="toggle-light-dark">light/dark mode</label>
-                <input type="checkbox" name="toggle-light-dark">
-            </form>
-        </li>
-      </ul>
-</nav>
+        <!-- <li> <a href= "<%= LinkTo %>"><h1><%= title %></h1></a> </li> -->  
+<!--Start: Nav  -->
+<div class="ui sticky borderless huge menu" style="background-color: aliceblue;">
+  <div class="ui container grid">  
+    <!--Start: Desktop Nav-->
+    <div class="computer only row">
+        <div class="ui dropdown item">
+          <i class="content teal icon"></i>
+          <div class="menu">
+            <a class="item" href="/blogs/<%= id %>/new">
+              <i class="coffee teal icon"></i>
+              Create Blog
+            </a>
+            <a class="item" href="/posts/<%= id %>/new">
+              <i class="bullhorn teal icon"></i>
+              Create Post
+            </a>
+            <a class="item" href="#">
+              <i class="music teal icon"></i>
+              My Playlist
+            </a>
+            <a class="item" href="/explore">
+              <i class="globe teal icon"></i>
+              Explore Page
+            </a>
+            <a class="item" href="/logout">
+              <i class="circular inverted teal sign-out icon"></i>
+              Logout
+            </a>
+            </div>
+        </div> 
+      <a href="/explore" class="left menu item">MyWorld</a>
+      <div class="right menu">
+        <!-- Start: Search -->
+        <form id="search" action="">
+        <div class="item">
+          <div class="ui icon input">
+            <input id="search-input" type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </form>
+         <!-- End: Search -->  
+        <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
+          <div class="menu">
+              <a class="item" href="/profile/<%= id %>">
+                <i class="user teal icon"></i>
+                Profile
+              </a>
+              <div class="item">
+              <!-- <i class="circular inverted teal users icon"></i> For Explore icon-->
+              <i class="circular inverted teal sign-out icon"></i>
+              Logout
+            </div>
+            </div>
+          </div>
+        </div>
+              <div class="item">
+                <div class="ui toggle checkbox">
+                  <label for="toggle-light-dark">
+                    <i class="adjust teal icon"></i>light/dark mode</label>
+                  <input id ="toggle" type="checkbox" name="public">
+            </div>
+      </div>
+    </div>
+    <!--End: Desktop Nav-->
+    <!--Start: Mobile Nav-->
+    <div class="tablet mobile only row">
+      <a href="/explore" class="header item"> MyWorld</a>
+      <div class="right menu">   
+        <!-- <a class="menu item"> -->
+          <div class="ui dropdown item">
+            <i class="content teal icon"></i>
+            <div class="menu">
+              <a class="item" href="/blogs/<%= id %>/new">
+                <i class="coffee teal icon"></i>
+                Create Blog
+              </a>
+              <a class="item" href="/posts/<%= id %>/new">
+                <i class="bullhorn teal icon"></i>
+                Create Post
+              </a>
+              <a class="item" href="#">
+                <i class="music teal icon"></i>
+                My Playlist
+              </a>
+              <a class="item" href="/explore">
+                <i class="globe teal icon"></i>
+                Explore Page
+              </a>
+              <a class="item" href="/logout">
+                <i class="circular inverted teal sign-out icon"></i>
+                Logout
+              </a>
+              </div>
+          </div>
+      </div>
+      <div class="ui vertical accordion borderless fluid menu">
+        <!-- Start: Search -->
+        <form id="search-two" action="">
+        <div class="item">
+          <div class="ui icon input">
+            <input id="search-input-two" type="text" placeholder="Search...">
+            <i class="search link icon"></i>
+          </div>
+        </div>
+      </form>
+         <!-- End: Search -->
+         <div class="ui divider"></div>
+         <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
+          <div class="left menu">
+            <a class="item" href="/profile/<%= id %>">
+              <i class="user teal icon"></i>
+              Profile
+            </a>
+            <div class="item">
+              <i class="circular inverted teal sign-out icon"></i>
+              Logout
+            </div>
+            </div>
+          </div>
+        <div class="item">
+          <div class="ui toggle checkbox">
+            <label for="toggle-light-dark">
+              <i class="adjust teal icon"></i>light/dark mode</label>
+            <input id ="toggle" type="checkbox" name="public">
+      </div>
+          </div>
+      </div>
+    </div>
+    <!--End: Mobile Nav-->
+  </div>
+</div>
+<!--End: Nav  -->
+</div>

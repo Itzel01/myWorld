@@ -1,11 +1,22 @@
 <script>
     const form = document.getElementById("search");
+    const formTwo = document.getElementById("search-two");
     let searchInput = "";
-  
+
     function handleSubmit(event) {
         event.preventDefault();
         searchInput = "";
         searchInput += form.getElementsByTagName("input")[0].value;
+        searchBlog(searchInput);
+        searchPost(searchInput);
+        form.reset();
+    }
+
+    function handleSubmitTwo(event) {
+        event.preventDefault();
+        console.log("submit")
+        searchInput = "";
+        searchInput += formTwo.getElementsByTagName("input")[0].value;
         searchBlog(searchInput);
         searchPost(searchInput);
         form.reset();
@@ -49,4 +60,10 @@
   
   
     form.addEventListener('submit', handleSubmit);
+    formTwo.addEventListener('submit', handleSubmitTwo);
+    $(document).ready(function(){
+      $('.ui.dropdown').dropdown();
+    $('.ui.checkbox').checkbox('attach events', '.toggle.button');
+    });
+    
   </script>
