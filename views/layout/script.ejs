@@ -63,7 +63,43 @@
     formTwo.addEventListener('submit', handleSubmitTwo);
     $(document).ready(function(){
       $('.ui.dropdown').dropdown();
-    $('.ui.checkbox').checkbox('attach events', '.toggle.button');
+      $('.ui.checkbox').checkbox(checkit(), '.toggle.button');
+      $('.ui.checkbox').click(function () {
+        var checked = $('input', this).is(':checked');
+        $('span', this).text(checked ? 'Dark Mode' : 'Light Mode');
+       if(checked){
+        $("body").css("background-color", "black");
+        $("h2").css("color", "white");
+       } else {
+        $("body").css("background-color", "white");
+        $("h2").css("color", "black");
+       }
+
+      });
+
+      $('.ui.checkbox.two').click(function () {
+        var checked = $('input', this).is(':checked');
+        $('span', this).text(checked ? 'Dark Mode' : 'Light Mode');
+        if(checked){
+        $("body").css("background-color", "black");
+        $("h2").css("color", "white");
+       } else {
+        $("body").css("background-color", "white");
+        $("h2").css("color", "black");
+       }
+      });
     });
     
+
+    let toggle =document.getElementById("toggle");
+    let toggleTwo =document.getElementById("toggle-two");
+    let togText = document.getElementById("tog-text");
+    let togTextTwo = document.getElementById("tog-text-two");
+    function checkit(){
+      console.log("wow")
+    }
+
+    
+
+
   </script>
