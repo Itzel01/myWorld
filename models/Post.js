@@ -8,8 +8,10 @@ class Post {
 
     static newPost(postInfo, id){
         let {mood, post_content} = postInfo
+        let strippedString = mood.replace(/(<([^>]+)>)/gi, "");
+        debugger
         const queryText = `INSERT INTO posts (mood, post_content, user_id, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *`
-        return db.query(queryText, [mood, post_content, id]).then(results => results.rows[0])
+        return db.query(queryText, [strippedString, post_content, id]).then(results => results.rows[0])
     }
 
     static deletePost(id){
@@ -29,8 +31,9 @@ class Post {
 
     static updatePost(id, info) {
         const {mood, post_content, user_id} = info
+        let strippedString = mood.replace(/(<([^>]+)>)/gi, "");
         const queryText = 'UPDATE posts SET mood = $1, post_content = $2, user_id = $3 WHERE id = $4 RETURNING *;'
-        return db.query(queryText, [mood, post_content, user_id, id]).then(results => results.rows[0]);
+        return db.query(queryText, [strippedString, post_content, user_id, id]).then(results => results.rows[0]);
     }
 }
 
