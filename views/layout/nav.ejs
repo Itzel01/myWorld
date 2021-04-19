@@ -44,7 +44,7 @@
         <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
           <div class="menu">
               <a class="item" href="/profile/<%= id %>">
-                <i class="user teal icon"></i>
+                <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= user.first_name %>+<%= user.last_name %>&caps=1&bold=true" style="width: 30px; height: 30px; border-radius: 50%;">
                 Profile
               </a>
               <a class="item" href="/logout">
@@ -109,7 +109,7 @@
          <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
           <div class="left menu">
             <a class="item" href="/profile/<%= id %>">
-              <i class="user teal icon"></i>
+              <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= user.first_name %>+<%= user.last_name %>&caps=1&bold=true" style="width: 30px; height: 30px; border-radius: 50%;">
               Profile
             </a>
             <a class="item" href="/logout">
