@@ -2,8 +2,9 @@
 <body>
     
   <%- include("./layout/nav.ejs") -%>
-  <h2 class="ui centered header">Recent posts</h2>
-    <div>
+
+  <div style="margin-top: 250px;">
+      <h2 class="ui centered header">Recent posts</h2>
       <ul id="findPost" style="list-style-type: none;">
         <% for(const post of allPosts){ %>
           <li>

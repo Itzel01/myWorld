@@ -2,7 +2,7 @@
 
 <body>
     <%- include("./layout/nav.ejs") -%>
-    <div class="ui raised very padded text container segment">
+    <div class="ui raised very padded text container segment" style="margin-top: 150px;">
     <h1 class="ui centered header">Edit Your Blog</h1>
     <form class="ui form" action="/blogs/<%=blog.id%>?_method=PATCH" method="post">
         <div class="field">
