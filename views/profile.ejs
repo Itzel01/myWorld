@@ -5,35 +5,49 @@
     <!-- <div>
         <h1>Music Section</h1>
     </div> -->
-    <div>
-        <h3>Posts</h3>
-        <ul id="findPost">
+    <div style="margin-top: 250px;">
+        <h2 class="ui centered header">Recent Posts</h2>
+        <ul id="findPost" style="list-style-type: none;">
           <% for(const post of posts){ %>
             <li>
+            <div class="ui raised very padded text container segment">
                 <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <hr>
                 <h1> Mood: <%= post.mood %></h1>
                 <p> <%= post.post_content %></p>
-                <a href="/posts/<%=post.id%>/edit">Edit Post</a>
+                <hr>
+                <a href="/posts/<%=post.id%>/edit">
+                  <button class="ui button">Edit Post</button>
+                </a>
                 <form action="/posts/<%=post.id%>?_method=DELETE" method="post">
-                    <button type="submit">DELETE POST?</button>
+                    <button class="ui button"type="submit">DELETE POST?</button>
                 </form>
+              </div>
             </li>
+              <br>
           <% } %>
         </ul>
         </div>
         <div>
-            <h3>Recent blogs</h3>
-            <ul id="findBlog">
+            <h2 class="ui centered header">Recent Blogs</h2>
+            <ul id="findBlog" style="list-style-type: none;">
               <% for(const blog of blogs){ %>
                 <li>
-                    <img src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                <div class="ui raised very padded text container segment">
+                    <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
+                    <hr>
                     <h1><%= blog.title %></h1>
                     <p> <%= blog.blog_content %></p>
-                    <a href="/blogs/<%=blog.id%>/edit">Edit Blog</a>
+                    <hr>
+                    <a href="/blogs/<%=blog.id%>/edit">
+                      <button class="ui button">Edit Blog</button>
+                    </a>
                     <form action="/blogs/<%=blog.id%>?_method=DELETE" method="post">
-                        <button type="submit">DELETE BLOG?</button>
+                        <button class="ui button" type="submit">DELETE BLOG?</button>
                     </form>
+                  </div>
                 </li>
+                  <br>
               <% } %>
             </ul>
             </div>  

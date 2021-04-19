@@ -2,7 +2,7 @@ const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
 const methodOverride = require('method-override');
-const session = require('express-session')
+const session = require('express-session');
 
 const blogRouter = require('./routers/blogRouter');
 const userRouter = require('./routers/userRouter');

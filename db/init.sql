@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS bookmarks CASCADE;
 -- CREATE TABLE users
 CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT, user_name TEXT, email TEXT, encrypted_password CHAR(60));
 
--- INSERT some data into users
+-- -- INSERT some data into users
 -- INSERT INTO users (first_name, last_name, user_name, email, encrypted_password) VALUES
 -- 	('Olivia', 'Reed', 'Olive', 'olivia@gmail.com', '1234'),
 -- 	('Jarrit', 'Alicea', 'Jar', 'Jarrit@outlook.com', '12345'),
@@ -16,7 +16,7 @@ CREATE TABLE users (id SERIAL PRIMARY KEY, first_name TEXT, last_name TEXT, user
 -- CREATE TABLE blogs
 CREATE TABLE blogs (id SERIAL PRIMARY KEY, title TEXT, blog_content TEXT, created_at TIMESTAMP WITH TIME ZONE, user_id INT REFERENCES users(id));
 
--- INSERT some data into blogs
+-- -- INSERT some data into blogs
 -- INSERT INTO blogs (user_id, title, blog_content, created_at) VALUES
 -- 	(1, 'Ten Reasons Why People Love Anything ', 'content', now()),
 -- 	(2, 'Why Is Ice Cream Considered Underrated?', 'content', now()),
@@ -28,7 +28,7 @@ CREATE TABLE blogs (id SERIAL PRIMARY KEY, title TEXT, blog_content TEXT, create
 -- CREATE TABLE posts
 CREATE TABLE posts (id SERIAL PRIMARY KEY, mood TEXT, post_content TEXT, created_at TIMESTAMP WITH TIME ZONE, user_id INT REFERENCES users(id));
 
--- INSERT some data into posts
+-- -- INSERT some data into posts
 -- INSERT INTO posts (user_id, mood, post_content, created_at) VALUES
 -- 	(1, ':)', 'GLAD to be demoing for you guys',  now()),
 -- 	(2, '>.<', 'I want tacos', now()),
@@ -40,7 +40,7 @@ CREATE TABLE posts (id SERIAL PRIMARY KEY, mood TEXT, post_content TEXT, created
 -- CREATE TABLE playlists
 CREATE TABLE playlists (id SERIAL PRIMARY KEY, user_id INT REFERENCES users(id), title TEXT,  artist TEXT, media_link TEXT);
 
--- INSERT some data into playlists
+-- -- INSERT some data into playlists
 -- INSERT INTO playlists (user_id, title, artist, media_link) VALUES
 -- 	(1,  'Never', 'RA', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),
 -- 	(2,  'Never', 'RA', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'),

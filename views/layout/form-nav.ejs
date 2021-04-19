@@ -1,0 +1,114 @@
+        <!-- <li> <a href= "<%= LinkTo %>"><h1><%= title %></h1></a> </li> -->  
+<!--Start: Nav  -->
+<div class="ui fixed borderless huge menu" style="background-color: aliceblue;">
+    <div class="ui container grid">  
+      <!--Start: Desktop Nav-->
+      <div class="computer only row" >
+          <div class="ui dropdown item">
+            <i class="content teal icon"></i>
+            <div class="menu">
+              <a class="item" href="/blogs/<%= id %>/new">
+                <i class="coffee teal icon"></i>
+                Create Blog
+              </a>
+              <a class="item" href="/posts/<%= id %>/new">
+                <i class="bullhorn teal icon"></i>
+                Create Post
+              </a>
+              <a class="item" href="#">
+                <i class="music teal icon"></i>
+                My Playlist
+              </a>
+              <a class="item" href="/explore">
+                <i class="globe teal icon"></i>
+                Explore Page
+              </a>
+              <a class="item" href="/logout">
+                <i class="circular inverted teal sign-out icon"></i>
+                Logout
+              </a>
+              </div>
+          </div> 
+        <a href="/explore" class="left menu item">MyWorld</a>
+        <div class="right menu">
+          <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
+            <div class="menu">
+                <a class="item" href="/profile/<%= id %>">
+                  <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= user.first_name %>+<%= user.last_name %>&caps=1&bold=true" style="width: 30px; height: 30px; border-radius: 50%;">
+                  Profile
+                </a>
+                <a class="item" href="/logout">
+                <i class="circular inverted teal sign-out icon"></i>
+                Logout
+                </a>
+              </div>
+            </div>
+          </div>
+                <div class="item">
+                  <div class="ui toggle checkbox">
+                    <label for="toggle-light-dark">
+                      <i class="adjust teal icon"></i><span id="tog-text">Light Mode</span></label>
+                    <input id ="toggle" type="checkbox" name="public">
+              </div>
+        </div>
+      </div>
+      <!--End: Desktop Nav-->
+      <!--Start: Mobile Nav-->
+      <div class="tablet mobile only row">
+        <a href="/explore" class="header item"> MyWorld</a>
+        <div class="right menu">   
+          <!-- <a class="menu item"> -->
+            <div class="ui dropdown item">
+              <i class="content teal icon"></i>
+              <div class="menu">
+                <a class="item" href="/blogs/<%= id %>/new">
+                  <i class="coffee teal icon"></i>
+                  Create Blog
+                </a>
+                <a class="item" href="/posts/<%= id %>/new">
+                  <i class="bullhorn teal icon"></i>
+                  Create Post
+                </a>
+                <a class="item" href="#">
+                  <i class="music teal icon"></i>
+                  My Playlist
+                </a>
+                <a class="item" href="/explore">
+                  <i class="globe teal icon"></i>
+                  Explore Page
+                </a>
+                <a class="item" href="/logout">
+                  <i class="circular inverted teal sign-out icon"></i>
+                  Logout
+                </a>
+                </div>
+            </div>
+        </div>
+        <div class="ui vertical accordion borderless fluid menu">
+           <div class="ui dropdown item">Profile<i class="dropdown icon"></i>
+            <div class="left menu">
+              <a class="item" href="/profile/<%= id %>">
+                <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=<%= user.first_name %>+<%= user.last_name %>&caps=1&bold=true" style="width: 30px; height: 30px; border-radius: 50%;">
+                Profile
+              </a>
+              <a class="item" href="/logout">
+                <i class="circular inverted teal sign-out icon"></i>
+                Logout
+              </a>
+              </div>
+            </div>
+          <div class="item">
+            <div class="ui toggle checkbox two">
+              <label for="toggle-light-dark">
+                <i class="adjust teal icon"></i><span id="tog-text-two">Light Mode</span></label>
+              <input id ="toggle-two" type="checkbox" name="public">
+        </div>
+            </div>
+        </div>
+      </div>
+      <!--End: Mobile Nav-->
+    </div>
+  </div>
+  <!--End: Nav  -->
+  </div>
+  

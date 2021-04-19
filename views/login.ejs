@@ -1,10 +1,10 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     <%- include("./layout/login-register-nav.ejs") -%>
-    <div class="container">
+    <div class="ui raised very padded text container segment" style="margin-top: 150px;">
         <h1 class="ui centered header">My World</h1>
         <h2 class="ui centered header">Its not a popularity contest guys!</h2>
-        <div class="ui centered large card">
+        <div class="ui centered">
             <form class="ui form" action='/login' method='post'>
                 <div class="field">
                     <div class="ui labeled input">
@@ -28,4 +28,5 @@
         </div>
     </div>
 </body>
+<%- include("./layout/script-login.ejs") -%>
 </html>

@@ -1,39 +1,39 @@
 <%- include("./layout/main.ejs") -%>
 <body>
     <%- include("./layout/login-register-nav.ejs") -%>
-    <div class="container">
+    <div class="ui raised very padded text container segment" style="margin-top: 150px;">
         <h1 class="ui centered header">My World</h1>
         <h2 class="ui centered header">To access everything my world has to offer you must first make an account</h2>
-        <div class="ui centered large card">
+        <div class="ui centered">
             <form class="ui form" action='/register' method='post'>
                 <div class="field">
                     <div class="ui labeled input">
                         <label class="ui label" for='first_name'>First name</label>
-                        <input name='first_name'/>
+                        <input name='first_name' required/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui labeled input">
                         <label class="ui label" for='last_name'>Last name</label>
-                        <input name='last_name'/>
+                        <input name='last_name' required/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui labeled input">
                         <label class="ui label" for='user_name'>User name</label>
-                        <input name='user_name'/>
+                        <input name='user_name' required/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui labeled input">
                         <label class="ui label" for='email'>Email</label>
-                        <input name='email'/>
+                        <input name='email' required/>
                     </div>
                 </div>
                 <div class="field">
                     <div class="ui labeled input">
                         <label class="ui label" for='encrypted_password'>Password</label>
-                        <input type="password" name='encrypted_password'/>
+                        <input type="password" name='encrypted_password' required/>
                     </div>
                 </div>
                 <div class="field">
@@ -46,4 +46,5 @@
         </div>
     </div>
 </body>
+<%- include("./layout/script-login.ejs") -%>
 </html>

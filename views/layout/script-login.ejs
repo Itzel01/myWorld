@@ -1,0 +1,30 @@
+<script>  
+    $(document).ready(function(){
+      $('.ui.dropdown').dropdown();
+      $('.ui.checkbox').checkbox(checkit(), '.toggle.button');
+      $('.ui.checkbox').click(function () {
+        var checked = $('input', this).is(':checked');
+        $('span', this).text(checked ? 'Dark Mode' : 'Light Mode');
+       if(checked){
+        $("body").css("background-color", "black");
+       } else {
+        $("body").css("background-color", "white");
+       }
+      });
+
+      $('.ui.checkbox.two').click(function () {
+        var checked = $('input', this).is(':checked');
+        $('span', this).text(checked ? 'Dark Mode' : 'Light Mode');
+        if(checked){
+        $("body").css("background-color", "black");
+       } else {
+        $("body").css("background-color", "white");
+       }
+      });
+    });
+
+    function checkit(){
+      console.log("wow")
+    }
+
+  </script>

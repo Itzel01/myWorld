@@ -11,12 +11,12 @@ class User {
     }
 
     static getAllPosts () {
-        const queryText = 'SELECT * FROM users join posts ON users.id = posts.user_id'
+        const queryText = 'SELECT * FROM users join posts ON users.id = posts.user_id ORDER BY posts.id desc'
         return db.query(queryText).then(results => results.rows);
     }
 
     static getAllBlogs () {
-        const queryText = 'SELECT * FROM users join blogs ON users.id = blogs.user_id'
+        const queryText = 'SELECT * FROM users join blogs ON users.id = blogs.user_id ORDER BY blogs.id desc'
         return db.query(queryText).then(results => results.rows);
     }
 
