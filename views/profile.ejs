@@ -9,6 +9,7 @@
         <h3 class="ui centered header">Posts</h3>
         <ul id="findPost">
           <% for(const post of posts){ %>
+            <li>
             <div class="ui raised very padded text container segment">
                 <img src="https://avatar.oxro.io/avatar.svg?name=P+Ost&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
                 <hr>
@@ -22,6 +23,8 @@
                     <button class="ui button"type="submit">DELETE POST?</button>
                 </form>
               </div>
+            </li>
+              <br>
           <% } %>
         </ul>
         </div>
@@ -29,6 +32,7 @@
             <h3 class="ui centered header">Recent blogs</h3>
             <ul id="findBlog">
               <% for(const blog of blogs){ %>
+                <li>
                 <div class="ui raised very padded text container segment">
                     <img class="ui avatar image" src="https://avatar.oxro.io/avatar.svg?name=B+Log&caps=1&bold=true" style="width: 80px; height: 80px; border-radius: 50%;">
                     <hr>
@@ -42,6 +46,8 @@
                         <button class="ui button" type="submit">DELETE BLOG?</button>
                     </form>
                   </div>
+                </li>
+                  <br>
               <% } %>
             </ul>
             </div>  
